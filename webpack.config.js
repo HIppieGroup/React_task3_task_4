@@ -1,6 +1,7 @@
 "use strict";
 var webpack = require('webpack');
 var path = require('path');
+var ghpages = require('gh-pages');
 var loaders = require('./webpack.loaders');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var DashboardPlugin = require('webpack-dashboard/plugin');
@@ -20,6 +21,10 @@ loaders.push({
 	loaders: ['style-loader', 'css-loader?importLoaders=1', 'sass-loader'],
 	exclude: ['node_modules']
 });
+
+ghpages.publish(path.join(__dirname, 'build'), {
+  message: 'Auto-generated commit'
+}, callback);
 
 module.exports = {
 	entry: [
