@@ -8,8 +8,13 @@
     "start": "webpack-dev-server --progress --profile --colors",
     "lint": "eslint --ext js --ext jsx src || exit 0",
     "dev": " webpack-dashboard -- webpack-dev-server --progress --profile --colors",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d public"
   },
+    "repository": {
+    "type": "git",
+    "url": "https://github.com/HIppieGroup/react-redux-blank"
+  },
+  "author": "hippiegroup",
   "dependencies": {
     "node-sass": "^4.3.0",
     "react": "15.4.2",
