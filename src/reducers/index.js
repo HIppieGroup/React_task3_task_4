@@ -1,7 +1,11 @@
 import { combineReducers } from 'redux';
-import newReducer from './newReducer';
+import appReducers from './appReducers';
+import { FilterReducer, ErrorReducer } from './additionalReducers';
+
 
 
 export default combineReducers({
-  newReducer,
+  appReducers,
+  FilterReducer,
+  ErrorReducer
 });

@@ -3,17 +3,15 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import reducers from './reducers';
+import configureStore from './store/configureStore';
+import { saveState } from './store/localStorage';
 
-import { loadState, saveState } from './reducers/localStorage';
 
-
-const persistedState = loadState();
-const store = createStore(reducers, persistedState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = configureStore(); 
 
 store.subscribe( () => {
-  saveState(store.getState());
+  saveState({ appReducers: store.getState().appReducers });
 });
 
 ReactDOM.render(
