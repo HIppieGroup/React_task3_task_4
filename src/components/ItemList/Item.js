@@ -9,7 +9,6 @@ class Item extends Component {
   render() {
 
     const date = { ...this.props, devState: this.props.devState.find(item => item.id === this.props.inerItem.id)}; 
-    console.log(this.props.inerProps);
     return(
       <li className="item">
         <div className="item--header">
