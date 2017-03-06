@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import reducers from './reducers';
 import configureStore from './store/configureStore';
 import { saveState } from './store/localStorage';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
 import BookComponent from './components/Book/BookComponent';
@@ -14,7 +14,7 @@ import NotFound from './components/NotFoun';
 
 
 const store = configureStore(); 
-const history = syncHistoryWithStore(browserHistory, store);
+const history = syncHistoryWithStore(hashHistory, store);
 
 store.subscribe( () => {
   saveState({ appReducers: store.getState().appReducers });
