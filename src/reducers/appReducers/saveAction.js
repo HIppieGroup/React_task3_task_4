@@ -14,19 +14,23 @@ function saveAction(state=[], action) {
       return [...newState];
     break;
     case 'SAVE_NAME':
-      state[action.id] = {...state[action.id], bookName: action.payload}
+      newState.find(item => item.id === action.id).bookName = action.payload;
+      return [ ...newState];
     break;
     case 'SAVE_AUTHOR':
-      state[action.id] = {...state[action.id], author: action.payload}
+      newState.find(item => item.id === action.id).author = action.payload;
+      return [ ...newState];
     break;
     case 'SAVE_RELEASED':
-      state[action.id] = {...state[action.id], released: action.payload}
+      newState.find(item => item.id === action.id).released = action.payload;
+      return [ ...newState];
     break;
     case 'SAVE_DESCRIPTION':
-      state[action.id] = {...state[action.id], description: action.payload}
+      newState.find(item => item.id === action.id).description = action.payload;
+      return [ ...newState];
     break;
   }
-  return state;
+  return [ ...state];
 }
 
 export default saveAction;
