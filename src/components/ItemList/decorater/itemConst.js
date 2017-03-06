@@ -1,7 +1,7 @@
 export function contentGener(props, onSaveEdit, context) {
     const action = props.inerProps;
     const data = props.inerItem;
-    const dev = props.devState.find(item => item.id === data.id);
+    const dev = props.devState;
     
     switch (context){
       case 'AUTHOR':
