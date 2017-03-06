@@ -25,7 +25,6 @@ ReactDOM.render(
    <Router history={history} >
     <Route path="/" component={App} />
     <Route path="/item/:id" component={BookComponent} />
-    <Route path="*" component={NotFound} />
    </Router>
   </Provider>,
   document.getElementById('root')
