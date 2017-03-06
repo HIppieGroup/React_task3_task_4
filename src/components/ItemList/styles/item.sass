@@ -8,12 +8,18 @@
   flex-flow: row wrap
   justify-content: flex-end
   align-content: center
-
+  &--header-link
+    display: inline-block
+    text-decoration: none
+    color: #000
+    transition: color .4s ease-in-out
+    &:hover
+      color: #72a5dc
   &--header
     flex: 1 1 100%
     margin-top: 0
     font-size: 1.8rem
-
+    
   &--sub-header
     position: relative
     margin-top: 0

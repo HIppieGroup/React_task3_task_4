@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 
 import { decorateIner, contentGener } from './decorater';
+import { Link } from 'react-router';
 
 import './styles/item.sass';
 
 class Item extends Component {
   render() {
 
-    const date = this.props; 
-
+    const date = { ...this.props, devState: this.props.devState.find(item => item.id === this.props.inerItem.id)}; 
     return(
       <li className="item">
-        <h3 className="item--header">{this.props.inerItem.bookName}</h3>
+        <div className="item--header">
+          <Link className="item--header-link" to={`/item/${date.inerItem.id}`}>
+            <h3>{this.props.inerItem.bookName}</h3>
+          </Link>
+        </div>
         <div className="item--sub-section">
           <h5 className="item--sub-header">Автор</h5>
           {decorateIner(...contentGener(date, this.onSaveEdit.bind(this), 'AUTHOR'))}

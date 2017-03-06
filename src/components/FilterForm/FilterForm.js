@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 
 import './styles/filter-form.sass';
 
@@ -10,9 +11,16 @@ class FilterForm extends Component {
       </form>
     )
   }
-  findBook(event){
-    event.preventDefault();
+
+
+
+  findBook(){
     this.props.onFilter(this.refs.inputFilter.value);
+    if (this.refs.inputFilter.value == '') {
+      browserHistory.push({ query: { } });
+    }else {
+      browserHistory.push({ query: { search:this.refs.inputFilter.value} });
+    }
   }
 }
 
