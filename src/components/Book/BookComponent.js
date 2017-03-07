@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class BookComponent extends Component {
   render() {
 
-
+    const {author, released, description} = this.props.onState;
     return (
       <div className="wrapper">
         <div className="item">
@@ -29,9 +29,9 @@ class BookComponent extends Component {
     )
   } 
 
-  renderAuthor = () => this.props.onState.author ? this.props.onState.author : 'Автор не указан' ;
-  renderReleased = () => this.props.onState.released ? this.props.onState.released : 'Год выпуска не указан' ;
-  renderDescription = () => this.props.onState.description ? this.props.onState.description : 'Описание не указано' ;
+  renderAuthor = (author) => author ? author : 'Автор не указан' ;
+  renderReleased = (released) => released ? released : 'Год выпуска не указан' ;
+  renderDescription = (description) => description ? description : 'Описание не указано' ;
 
 }
 

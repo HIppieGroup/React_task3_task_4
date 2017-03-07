@@ -12,21 +12,22 @@ import '../styles/index.sass';
 
 class App extends Component {
   render() {
+    const { action, valid, editReducer, saveReducer } = this.props;
     return(
       <div className="wrapper">
         <CreateForm 
-          onAddItem={this.props.action.onAdd.bind(this)} 
-          onValidName={this.props.action.onValidName.bind(this)}
-          Error={this.props.valid}
-          length={this.props.devState}
+          onAddItem={action.onAdd.bind(this)} 
+          onValidName={action.onValidName.bind(this)}
+          Error={valid}
+          length={editReducer}
         />
-        <FilterForm onFilter={this.props.action.onFilterBook.bind(this)}/>
+        <FilterForm onFilter={action.onFilterBook.bind(this)}/>
         <ItemList 
-          stateDev={this.props.devState}
-          stateItem={this.props.onState} 
-          onDelItem={this.props.action.onDelItem.bind(this)}
-          onEdit={this.props.action.onEdit.bind(this)}
-          onSaveEdit={this.props.action.onSaveEdit.bind(this)}
+          editReducer={editReducer}
+          saveReducer={saveReducer} 
+          onDelItem={action.onDelItem.bind(this)}
+          onEdit={action.onEdit.bind(this)}
+          onSaveEdit={action.onSaveEdit.bind(this)}
         />
       </div>
     );
@@ -35,10 +36,10 @@ class App extends Component {
 
 export default connect(
   state => ({
-    onState: state.appReducers.saveAction.filter( item => {
+    saveReducer: state.appReducers.saveAction.filter( item => {
       return item.bookName.toLowerCase().includes(state.FilterReducer.toLowerCase())
     }),
-    devState: state.appReducers.editAction,
+    editReducer: state.appReducers.editAction,
     valid: state.ErrorReducer
   }),
   dispatch => ({

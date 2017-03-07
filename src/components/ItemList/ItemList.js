@@ -17,17 +17,17 @@ class ItemList extends Component {
     const props = {
       onDelItem: this.props.onDelItem.bind(this),
       onEdit: this.props.onEdit.bind(this),
-      onSave: this.props.onSaveEdit.bind(this)
+      onSaveEdit: this.props.onSaveEdit.bind(this)
     }
 
 
-    return this.props.stateItem.map((item, index) => {
+    return this.props.saveReducer.map((item, index) => {
       return (
         <Item 
           inerItem={item} 
           inerProps={props} 
           key={index} 
-          devState={this.props.stateDev}
+          devState={this.props.editReducer}
          />
 
         )

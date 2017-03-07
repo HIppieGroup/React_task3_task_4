@@ -37,7 +37,7 @@ class Item extends Component {
   onSaveEdit(what) {
     const id = this.props.inerItem.id;
     const text = this.refs.inputEdit.value;
-    this.props.inerProps.onSave(id, what, text);
+    this.props.inerProps.onSaveEdit(id, what, text);
     return false;
   }
 
